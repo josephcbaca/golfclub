@@ -1,0 +1,28 @@
+{
+  "name": "project-three",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "install": "cd client && npm install",
+    "seed": "node scripts/seedDB.js",
+    "build": "cd client && npm run build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josephcbaca/project-three.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josephcbaca/project-three/issues"
+  },
+  "homepage": "https://github.com/josephcbaca/project-three#readme",
+  "dependencies": {
+    "axios": "^0.19.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
+  }
+}
