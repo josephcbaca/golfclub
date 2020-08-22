@@ -11,7 +11,7 @@ const App = () =>
   <div>
     <Route exact path="/" component={Home} />
     <Route exact path="/login" component={Login} />
-    <Route exact path="/create-game" component={Scorecard} />
+    <Route exact path="/scorecard" component={Scorecard} />
     <Route exact path="/browse-game" component={BrowseGame} />
   </div>
 export default App;
