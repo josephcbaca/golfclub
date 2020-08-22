@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../navbar.js"
 import backgroundImage from "../images/TheGolfClub_BG.jpg"
+import { Link } from 'react-router-dom';
 
 function Home() {
   return (
@@ -14,13 +15,12 @@ function Home() {
         </div>
         <div className="row mt-2">
           <div className="col-3"></div>
-          <button type="button" className="btn col-2">Quick Start</button>
+          <button type="button" className="btn col-2"><Link to="/create-game">Create Game</Link></button>
           <div className="col-2"></div>
-          <button type="button" className="btn col-2">Login</button>
+          <button type="button" className="btn col-2"><Link to="/login">Login</Link></button>
           <div className="col-3"></div>
         </div>
       </div>
-
     </div>
   );
 };
