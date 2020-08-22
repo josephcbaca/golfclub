@@ -4,12 +4,15 @@ import Home from "./components/pages/Home"
 import { Route } from 'react-router-dom';
 import Login from "./components/pages/Login";
 import CreateGame from "./components/pages/CreateGame";
+import BrowseGame from "./components/pages/BrowseGame"
+
 
 const App = () =>
   <div>
-    <Route extact path="/" component={Home} />
-    <Route path="/login" component={Login} />
-    <Route path="/create-game" component={CreateGame} />
+    <Route exact path="/" component={Home} />
+    <Route exact path="/login" component={Login} />
+    <Route exact path="/create-game" component={CreateGame} />
+    <Route exact path="/browse-game" component={BrowseGame} />
   </div>
 export default App;
 
