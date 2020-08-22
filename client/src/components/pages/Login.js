@@ -7,14 +7,14 @@ function Login() {
     { <Form>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
-        <Form.Control type="email" placeholder="Enter email" />
+        <Form.Control className="col-4" type="email" placeholder="Enter email" />
         <Form.Text className="text-muted">
           Please enter your login email.
     </Form.Text>
       </Form.Group>
       <Form.Group controlId="formBasicPassword">
         <Form.Label>Password</Form.Label>
-        <Form.Control type="password" placeholder="Password" />
+        <Form.Control className="col-4" type="password" placeholder="Password" />
       </Form.Group>
       <Button variant="primary" type="submit">
         Submit
