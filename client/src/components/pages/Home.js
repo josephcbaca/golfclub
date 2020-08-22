@@ -17,7 +17,7 @@ function Home() {
           <div className="col-3"></div>
           <button type="button" className="btn col-2"><Link to="/create-game">Create Game</Link></button>
           <div className="col-2"></div>
-          <button type="button" className="btn col-2"><Link to="/login">Login</Link></button>
+          <button type="button" className="btn col-2"><Link to="/scorecard">Login</Link></button>
           <div className="col-3"></div>
         </div>
       </div>
