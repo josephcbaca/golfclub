@@ -20,7 +20,6 @@ function Login() {
         Submit
   </Button>
     </Form> }
-    <h3>Login Screen</h3>
     </div>
   );
 };
