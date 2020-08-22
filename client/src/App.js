@@ -1,12 +1,11 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-import BrowseGame from './components/pages/BrowseGame'
+import React from "react";
+import "./App.css";
+import Home from "./components/pages/Home"
 
-function App() {
-  return ( <div> placeholder </div> 
-    //<BrowseGame/>
-  );
-}
+const App = () => 
+<div>
+<Home />
+</div>
 
 export default App;
+
