@@ -1,9 +1,10 @@
 import React from "react";
+import {Form, Button} from 'react-bootstrap';
 
 function Login() {
   return (
     <div>
-    {/* <Form>
+    { <Form>
       <Form.Group controlId="formBasicEmail">
         <Form.Label>Email address</Form.Label>
         <Form.Control type="email" placeholder="Enter email" />
@@ -18,7 +19,7 @@ function Login() {
       <Button variant="primary" type="submit">
         Submit
   </Button>
-    </Form> */}
+    </Form> }
     <h3>Login Screen</h3>
     </div>
   );
