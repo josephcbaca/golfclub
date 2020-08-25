@@ -1,5 +1,6 @@
 import React from "react";
 import {Form, Button} from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 function Login() {
   return (
@@ -20,8 +21,9 @@ function Login() {
         Submit
   </Button>
     </Form> }
+    <h3>Not a member?</h3> <a><Link to="/sign-up">Sign Up</Link></a>
     </div>
   );
 };
-
+ 
 export default Login;
