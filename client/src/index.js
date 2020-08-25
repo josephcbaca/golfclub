@@ -5,6 +5,14 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
+fetch('/api/test').
+  then(function (response) {
+    return response.json();
+  }).
+  then(function (data) {
+    console.log(data);
+  });
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
