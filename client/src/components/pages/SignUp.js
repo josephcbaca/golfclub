@@ -34,6 +34,7 @@ function SignUp() {
         </Button>
         </Form.Row>
       </div>
+      <h3>Already a member?</h3> <a><Link to="/login">Login</Link></a>
     </div>
   )
 };
@@ -51,8 +52,8 @@ const user = {
   lastName: 'formGridLastName'
 };
 
-<h3>Already a member?</h3> <a><Link to="/login">Login</Link></a>
-</div>
+
+
 
 // const element = (
 //   <h1>
