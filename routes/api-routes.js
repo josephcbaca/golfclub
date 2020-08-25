@@ -31,3 +31,13 @@ module.exports = function(app){
   });
 
 }
+
+//Sign Up Create User POST
+//Keep in mind sessions - keep you in session while logged in
+
+//Select User GET
+
+//Create Game POST
+//Will need to GET from current logged in session
+
+//Join Game PUT
