@@ -18,7 +18,7 @@ import { Form, Col, Button, Navbar } from 'react-bootstrap';
 
 // First input page to get list of players 
 function playerList() {
-    let players = [];
+    // let players = [];
     return (
         <div className="container col-md-10">
             <Form.Group>
@@ -277,32 +277,12 @@ export default playerList;
 
 
 
-// function scoreCard(props) {
-//     const players = [props.host_id];
-//     if (props.player1_id) players.push(props.player1_id);
-//     if (props.player2_id) players.push(props.player2_id);
-//     if (props.player3_id) players.push(props.player3_id);
-//     return (
 
-//         <div>
-//             <Navbar/>
-//             <h3 className="gameID">Game ID: {this.gameID}  </h3>
-
-
-
-
-
-//         </div>
 
 //User inputs:Column1:Par, PlayerName1, PlayerName2, PlayerName3, PlayerName4
 
 
 //create player list function
-// function playerList() 
-// {
-//     return 
-// }
-
 
 
 // export GameID, PlayerID, Score to DB
