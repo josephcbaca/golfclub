@@ -16,10 +16,14 @@ if (process.env.NODE_ENV === "production") {
   app.use(express.static("client/build"));
 }
 
-// We need to use sessions to keep track of our user's login status
-//app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
-//app.use(passport.initialize());
-//app.use(passport.session());
+const passport = require("./config/passport");
+const compression = require("compression")
+const session = require("express-session");
+
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(compression());
 
 // Requiring our routes
 require("./routes/html-routes.js")(app);

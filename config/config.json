@@ -1,21 +1,21 @@
 {
   "development": {
     "username": "root",
-    "password": "Amandab1!",
+    "password": "1234567890",
     "database": "golfclub_development",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "Amandab1!",
+    "password": "1234567890",
     "database": "golfclub_test",
     "host": "127.0.0.1",
     "dialect": "mysql"
   },
   "production": {
     "username": "root",
-    "password": "Amandab1!",
+    "password": "1234567890",
     "database": "golfclub_production",
     "host": "127.0.0.1",
     "dialect": "mysql"
