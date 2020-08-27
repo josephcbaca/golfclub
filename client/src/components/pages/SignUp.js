@@ -23,7 +23,7 @@ function SignUp() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(bodyObj)
-    }).then(res=> window.location.replace("/browse-game"));
+    }).then(res=> window.location.replace("/login"));
   }
 
   return (
@@ -61,7 +61,7 @@ function SignUp() {
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={e => {console.log(e.target.value);setPassword(e.target.value)}}
+                onChange={e => {setPassword(e.target.value)}}
               />
             </div>
           </div>
