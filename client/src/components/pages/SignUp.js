@@ -1,38 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import Navbar from "../navbar.js"
-import {Form, Button, Col} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 function SignUp() {
+  const [user, setUser] = useState();
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
+  // Does a post to the signup route. If successful, we are redirected to the browse-game page
+  // Otherwise we log any errors
+  function signUpUser(email, password) {
+    user.post("/api/signup", {
+      email: email,
+      password: password
+    })
+      .then(<Link to="/browse-game">Create Game</Link>)
+      .catch("err");
+  }
+
   return (
     <div>
       <Navbar />
       <div className="loginCard">
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridFirstName">
-            <Form.Label>First Name</Form.Label>
-            <Form.Control type="firstName" placeholder="First Name" />
-          </Form.Group>
 
-          <Form.Group as={Col} controlId="formGridLastName">
-            <Form.Label>Last Name</Form.Label>
-            <Form.Control type="lastName" placeholder="Last Name" />
-          </Form.Group>
-        </Form.Row>
-        <Form.Row>
-          <Form.Group as={Col} controlId="formGridEmail">
-            <Form.Label>Email</Form.Label>
-            <Form.Control type="email" placeholder="Email" />
-          </Form.Group>
-
-          <Form.Group as={Col} controlId="formGridPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control type="password" placeholder="Password" />
-          </Form.Group>
-          <Button variant="primary" type="submit">
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Username"
+                name="username"
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <input
+                className="form-control"
+                type="password"
+                placeholder="Password"
+                name="password"
+                onChange={e => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <button onClick={signUpUser} className="btn" type="submit">
             Submit
-        </Button>
-        </Form.Row>
+          </button>
+        </div>
       </div>
       <h3>Already a member?</h3> <a><Link to="/login">Login</Link></a>
     </div>
@@ -40,30 +57,3 @@ function SignUp() {
 };
 
 export default SignUp;
-
-// ...????  Need event listener to run username function
-
-function welcomeUser(user) {
-  return user.firstName + ' ' + user.lastName;
-}
-
-const user = {
-  firstName: 'formGridFirstName',
-  lastName: 'formGridLastName'
-};
-
-
-
-
-// const element = (
-//   <h1>
-//     Welcome to THE GOLF CLUB, {formatName(user)}!
-//   </h1>
-// );
-
-
-// (This may be unnecessary or be moved to another page)
-// ReactDOM.render(
-//   element,
-//   document.getElementById('root')
-// );
