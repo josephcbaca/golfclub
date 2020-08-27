@@ -6,6 +6,7 @@ import Login from "./components/pages/Login";
 import Scorecard from "./components/pages/Scorecard";
 import BrowseGame from "./components/pages/BrowseGame"
 import SignUp from "./components/pages/SignUp"
+import CreateGame from "./components/pages/CreateGame"
 
 
 const App = () =>
@@ -15,6 +16,7 @@ const App = () =>
     <Route exact path="/scorecard" component={Scorecard} />
     <Route exact path="/browse-game" component={BrowseGame} />
     <Route exact path="/sign-up" component={SignUp} />
+    <Route exact path="/create-game" component={CreateGame} />
   </div>
   
 export default App;

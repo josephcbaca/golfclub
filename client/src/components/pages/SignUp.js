@@ -23,9 +23,7 @@ function SignUp() {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(bodyObj)
-    }).then(res=> console.log(res));
-      //.then(<Link to="/browse-game">Create Game</Link>)
-      //.catch(err=> console.log(err));
+    }).then(res=> window.location.replace("/browse-game"));
   }
 
   return (

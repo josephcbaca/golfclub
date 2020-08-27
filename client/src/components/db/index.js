@@ -35,3 +35,5 @@ let courses = [
         link: "https://www.glenacresgolf.com/"
     }
 ]
+
+export default courses
