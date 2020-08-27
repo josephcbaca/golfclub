@@ -3,19 +3,29 @@ import Navbar from "../navbar.js"
 import { Link } from 'react-router-dom';
 
 function SignUp() {
-  const [user, setUser] = useState();
+  const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
   // Does a post to the signup route. If successful, we are redirected to the browse-game page
   // Otherwise we log any errors
-  function signUpUser(email, password) {
-    user.post("/api/signup", {
+  function signUpUser() {
+    const bodyObj = {  
+      userName: userName,
       email: email,
       password: password
-    })
-      .then(<Link to="/browse-game">Create Game</Link>)
-      .catch("err");
+    }
+    console.log(bodyObj);
+    fetch("/api/signup", {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(bodyObj)
+    }).then(res=> console.log(res));
+      //.then(<Link to="/browse-game">Create Game</Link>)
+      //.catch(err=> console.log(err));
   }
 
   return (
@@ -29,8 +39,19 @@ function SignUp() {
               <input
                 className="form-control"
                 type="text"
-                placeholder="Username"
-                name="username"
+                placeholder="userName"
+                name="userName"
+                onChange={e => setUserName(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="email"
+                name="email"
                 onChange={e => setEmail(e.target.value)}
               />
             </div>
@@ -42,7 +63,7 @@ function SignUp() {
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={e => setPassword(e.target.value)}
+                onChange={e => {console.log(e.target.value);setPassword(e.target.value)}}
               />
             </div>
           </div>
