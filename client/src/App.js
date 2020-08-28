@@ -9,7 +9,7 @@ import SignUp from "./components/pages/SignUp"
 import CreateGame from "./components/pages/CreateGame"
 
 
-const App = () =>
+const App = () => 
   <div>
     <Route exact path="/" component={Home} />
     <Route exact path="/login" component={Login} />
