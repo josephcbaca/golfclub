@@ -1,5 +1,5 @@
 import React from "react";
-import courses from "../db";
+import courses from "../../db";
 
 function CreateGame() {
     return (
