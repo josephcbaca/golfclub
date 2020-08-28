@@ -1,6 +1,6 @@
 import React from "react";
-import Navbar from "../navbar.js"
-import backgroundImage from "../images/TheGolfClub_BG.jpg"
+import Navbar from "../../navbar.js"
+import backgroundImage from "../../images/TheGolfClub_BG.jpg"
 import { Link } from 'react-router-dom';
 
 function Home() {
