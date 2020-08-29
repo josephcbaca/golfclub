@@ -67,12 +67,7 @@ module.exports = function (app) {
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
   app.post("/api/login", passport.authenticate("local"), (req, res) => {
-    // Sending back a password, even a hashed password, isn't a good idea
-    res.json({
-      email: req.user.email,
-      id: req.user.id,
-      usertype: req.user.usertype
-    });
+       res.json(req.user);
   });
 
   // Route for signing up a user. The user's password is automatically hashed and stored securely thanks to
@@ -101,16 +96,15 @@ module.exports = function (app) {
   });
 
   // Route for getting some data about our user to be used client side
-  app.get("/api/user_data", (req, res) => {
+  app.get("/api/user_data", (req, res, next) => {
     if (!req.user) {
       // The user is not logged in, send back an empty object
-      res.json({});
+      res.json({user:null});
     } else {
       // Otherwise send back the user's email and id
       // Sending back a password, even a hashed password, isn't a good idea
       res.json({
-        email: req.user.email,
-        id: req.user.id
+        user: req.user
       });
     }
   });

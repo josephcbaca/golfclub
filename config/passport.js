@@ -15,7 +15,8 @@ passport.use(new LocalStrategy(
       where: {
         email: email
       }
-    }).then(function(dbUser) {
+    }).then(function(err, dbUser) {
+      if (err) { return done(err);}
       // If there's no user with the given email
       if (!dbUser) {
         return done(null, false, {
