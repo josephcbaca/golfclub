@@ -1,10 +1,10 @@
 import React from 'react';
 
 function GameCard(props) {
-    const players = [props.host_id];
-    if (props.player1_id) players.push(props.player1_id);
-    if (props.player2_id) players.push(props.player2_id);
-    if (props.player3_id) players.push(props.player3_id);
+    const players = [props.host.userName];
+    if (props.player_1) players.push(props.player_1.userName);
+    if (props.player_2) players.push(props.player_2.userName);
+    if (props.player_3) players.push(props.player_3.userName);
     return (
 
         <div>
@@ -12,7 +12,7 @@ function GameCard(props) {
             <ul>Attendees:
             {players.map(player => <li>{player}</li>)}
             </ul>
-            <p>{`At: ${props.CourseName}`}</p>
+            <p>{`At: ${props.golfCourse}`}</p>
             <button> Join this game!</button>
         </div>
     );
