@@ -1,25 +1,28 @@
 import React, { useState } from "react";
 import { Form, Button } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
-function Login() {
+function Login(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
-  function loginUser () {
+  function loginUser (e) {
+    e.preventDefault();
     const bodyObj = {  
       email: email,
       password: password
     }
     console.log(bodyObj);
-    fetch("/api/login", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(bodyObj)
-    }).then(res=> window.location.replace("/browse-game"));
+    axios.post("/api/login", bodyObj).then(res=> {
+      console.log('login response:');
+      console.log(res);
+      if (res.status===200){
+        props.updateUser(res.data)
+        window.location.replace("/browse-game");
+      }
+    }).catch(err=> console.log(err));
+
   }
 
   return (
@@ -48,7 +51,7 @@ function Login() {
           Submit
         </Button>
       </Form>}
-      <h3>Not a member?</h3> <a><Link to="/sign-up">Sign Up</Link></a>
+      <h3>Not a member?</h3> <Link to="/sign-up">Sign Up</Link>
     </div>
   );
 };

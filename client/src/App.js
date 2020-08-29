@@ -30,12 +30,17 @@ const App = () =>{
     })
   }
 
+  const updateUser = userObj=>{
+    setLoggedIn(true);
+    setCurrentUser(userObj);
+  }
+
   useEffect(getUser, []);
 
   return(
     <div>
       <Route exact path="/" component={Home} />
-      <Route exact path="/login" component={Login} />
+      <Route exact path="/login" render={()=> <Login updateUser={updateUser} />}/>
       <Route exact path="/scorecard" component={Scorecard} />
       <Route exact path="/browse-game" component={BrowseGame} />
       <Route exact path="/sign-up" component={SignUp} />
