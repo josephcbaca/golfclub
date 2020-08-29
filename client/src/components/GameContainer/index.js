@@ -8,15 +8,15 @@ function GameContainer(){
     // function to fetch games VIA api
     const getGames = () => {
         axios.get("/api/games").then(res=> {
-            console.log(res);
+            console.log(res.data);
             setGames(res.data);
         })
     }
-
+    
     useEffect(getGames, []);
 
     return (<div className='gameContainer'>
-        {games.map(game => <GameCard {...game} />)}
+        {games.map(game => <GameCard key = {game.id} {...game} />)}
     </div>
     )
 

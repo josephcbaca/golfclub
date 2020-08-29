@@ -43,10 +43,10 @@ module.exports = function (app) {
     }
   });
 
-  app.put("api/joingame", function (req, res) {
+  app.put("/api/joingame", function (req, res) {
     // for actuall put request, req.body needs: 
     // id(game id), user_id, slot_number (the id of empty player slot, e.g. player_id_2, player_id_3)
-
+    console.log(req);
     if (!req.user) {
       res.json({ msg: "Not logged in!" });
     } else {
@@ -55,14 +55,41 @@ module.exports = function (app) {
       const putBody = {};
       putBody[req.body.slot_number] = req.user.id;
 
-      db.Game.update(pubBody, {
+      db.Game.update(putBody, {
         where: {
           id: req.body.id
         }
-      }).then(result => res.json(result))
+      }).then(result => {
+          db.Game.findOne({
+            where: {
+              id: req.body.id
+            },
+            include: [{
+              as: 'host',
+              model: db.Player,
+              attributes: ['id', 'userName']
+            }, {
+              as: 'player_1',
+              model: db.Player,
+              attributes: ['id', 'userName']
+            }, {
+              as: 'player_2',
+              model: db.Player,
+              attributes: ['id', 'userName']
+            }, {
+              as: 'player_3',
+              model: db.Player,
+              attributes: ['id', 'userName']
+            }
+            ],
+            attributes: ['id', 'gameTime', 'golfCourse']
+          }).then(game=> {
+            res.json(game);
+          })
+        } 
+      ).catch(err=> res.json(err));
     }
   });
-
   // Using the passport.authenticate middleware with our local strategy.
   // If the user has valid login credentials, send them to the members page.
   // Otherwise the user will be sent an error
