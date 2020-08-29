@@ -80,9 +80,7 @@ module.exports = function (app) {
       email: req.body.email,
       password: req.body.password
     })
-      .then(() => {
-        res.redirect(307, "/api/login");
-      })
+      .then(() => res.end())
       .catch(err => {
         res.status(401).json(err);
       });

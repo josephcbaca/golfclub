@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Navbar from "../../navbar.js"
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 function SignUp() {
   const [userName, setUserName] = useState();
@@ -9,21 +10,27 @@ function SignUp() {
 
   // Does a post to the signup route. If successful, we are redirected to the browse-game page
   // Otherwise we log any errors
-  function signUpUser() {
+  function signUpUser(e) {
+    e.preventDefault();
     const bodyObj = {  
       userName: userName,
       email: email,
       password: password
     }
     console.log(bodyObj);
-    fetch("/api/signup", {
-      method: 'POST',
-      headers: {
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(bodyObj)
-    }).then(res=> window.location.replace("/login"));
+    axios.post("/api/signup", bodyObj)
+      .then(res=> {
+        console.log(res);
+        if (!res.data.errmsg){
+          console.log("success");
+          window.location.replace("/login");
+        } else {
+          console.log("ERR");
+        }})
+      .catch(err=> {
+        console.log("Signup Error: ");
+        console.log(err);
+      })
   }
 
   return (
