@@ -13,7 +13,7 @@ import axios from "axios";
 const App = () =>{
 
   const [loggedIn, setLoggedIn] = useState(false);
-  const [curretUser, setCurrentUser] = useState({});
+  const [currentUser, setCurrentUser] = useState({});
 
   const getUser = () => {
     axios.get("/api/user_data").then(res=> {
@@ -42,9 +42,9 @@ const App = () =>{
       <Route exact path="/" component={Home} />
       <Route exact path="/login" render={()=> <Login updateUser={updateUser} />}/>
       <Route exact path="/scorecard" component={Scorecard} />
-      <Route exact path="/browse-game" component={BrowseGame} />
+      <Route exact path="/browse-game" render={()=> <BrowseGame loggedIn={loggedIn} currentUser = {currentUser}/>}/>
       <Route exact path="/sign-up" component={SignUp} />
-      <Route exact path="/create-game" component={CreateGame} />
+      <Route exact path="/create-game" render={()=> <CreateGame loggedIn={loggedIn} currentUser = {currentUser}/>}/>
     </div>
     );
     

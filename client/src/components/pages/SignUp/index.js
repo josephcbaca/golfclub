@@ -77,7 +77,7 @@ function SignUp() {
           </button>
         </div>
       </div>
-      <h3>Already a member?</h3> <a><Link to="/login">Login</Link></a>
+      <h3>Already a member?</h3> <Link to="/login">Login</Link>
     </div>
   )
 };
