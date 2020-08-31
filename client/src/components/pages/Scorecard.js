@@ -1,74 +1,145 @@
-import React from "react";
+import React, { Component } from 'react'
 import { Form, Col, Button, Navbar } from 'react-bootstrap';
+let players = [];
 
 
+function setPage() {
 
-// function setPage() {
-
-//     constructor(props) {
-//         super(props);
+    constructor(props) ;
+        super(props);
       
-//         this.state = {
-//           playerList: true,
-//           Scorecard: false
-//         }
-//       }
+        this.state = {
+          playerList: true,
+          Scorecard: false
+        }
+      }
     
-// }
 
 // First input page to get list of players 
-function playerList() {
-    // let players = [];
-    return (
+class playerList extends React.Component{
+    render() 
+    { 
         <div className="container col-md-10">
-            <Form.Group>
-                <Form.Row>
-                    <Form.Label column lg={2}>
-                        Player1
-                </Form.Label>
-                    <Col>
-                        <Form.Control className="player1" type="text" placeholder="Player1" />
-                    </Col>
-                </Form.Row>
-                <br />
-                <Form.Row>
-                    <Form.Label column lg={2}>
-                        Player2
-                 </Form.Label>
-                    <Col>
-                        <Form.Control className="player2" type="text" placeholder="Player2" />
-                    </Col>
-                </Form.Row>
-                <br />
-                <Form.Row>
-                    <Form.Label column lg={2}>
-                        Player3
-                </Form.Label>
-                    <Col>
-                        <Form.Control className="player3" type="text" placeholder="Player3" />
-                    </Col>
-                </Form.Row>
-                <br />
-                <Form.Row>
-                    <Form.Label column lg={2}>
-                        Player4
-                </Form.Label>
-                    <Col>
-                        <Form.Control className="player4" type="text" placeholder="Player4" />
-                    </Col>
-                </Form.Row>
-                <br />
-                <Button as="input" type="submit" value="OK"  onClick={(e) => {return Scorecard} } />{' '}
-            </Form.Group>
-        </div>
+        <Form.Group>
+  <Form.Row>
+      <Form.Label column lg={2}>
+          Player1
+  </Form.Label>
+      <Col>
+          <Form.Control className="player1" type="text" placeholder="Player1" />
+      </Col>
+  </Form.Row>
+  <br />
+  <Form.Row>
+      <Form.Label column lg={2}>
+          Player2
+   </Form.Label>
+      <Col>
+          <Form.Control className="player2" type="text" placeholder="Player2" />
+      </Col>
+  </Form.Row>
+  <br />
+  <Form.Row>
+      <Form.Label column lg={2}>
+          Player3
+  </Form.Label>
+      <Col>
+          <Form.Control className="player3" type="text" placeholder="Player3" />
+      </Col>
+  </Form.Row>
+  <br />
+  <Form.Row>
+      <Form.Label column lg={2}>
+          Player4
+  </Form.Label>
+      <Col>
+          <Form.Control className="player4" type="text" placeholder="Player4" />
+      </Col>
+  </Form.Row>
+  <br />
+  <Button as="input" type="submit" value="OK"  onClick={} />{' '}
+</Form.Group>
+</div>
+}
+}
 
+export default playerList;
+
+
+
+class Table extends Component {
+    constructor(props) {
+        super(props) //since we are extending class Table so we have to use super in order to override Component class constructor
+        this.state = { //state is by default an object
+            players: [
+                { id: 1, name: ''},
+                { id: 2, name: ''},
+                { id: 3, name: ''},
+                { id: 4, name: ''}
+            ]
+        }
+    }
+    
+    render() { //Whenever our class runs, render method will be called automatically, it may have already defined in the constructor behind the scene.
+        return (
+            <div>
+             <h1>Scorecard </h1>
+         </div>
+     )
+        }
+
+     renderTableData() {
+         return this.state.players.map((players, index) => {
+             const { id, name } = players //destructuring
+             return (
+                 <tr key={id}>
+             <td>{id}</td>
+             <td>{name}</td>
+          </tr>
+       )
+    })
+}
+
+render() {
+    return (
+        <div>
+          <h1 id='title'>Scorecard</h1>
+          <table id='players'>
+             <tbody>
+                {this.renderTableData()}
+             </tbody>
+          </table>
+       </div>
     )
 }
 
+function renderTableHeader() {
+    let header = Object.keys(this.state.players[0])
+    return header.map((key, index) => {
+        return <th key={index}>{key.toUpperCase()}</th>
+    })
+}
+
+function render() {
+    return (
+        <div>
+          <h1 id='title'>Scorecard</h1>
+          <table id='players'>
+             <tbody>
+                <tr>{this.renderTableHeader()}</tr>
+                {this.renderTableData()}
+             </tbody>
+          </table>
+       </div>
+    )
+}
+
+export default Table 
+
+
 
 // Will create scorecard on submit
-// function Scorecard(players, holes) {
-    class Scorecard extends React.Component {
+class Scorecard extends React.Component {
         //unsure how to pull Players into an array
         constructor(props){
             super(props)
@@ -83,7 +154,8 @@ function playerList() {
             })
             console.log(this.state)
         }
-        render(){
+        render()
+        {
         return (
         <div className="scorecardContainer" style={ {height: '400px', width: '900px'} } >
             <Navbar />      
@@ -264,15 +336,12 @@ function playerList() {
             </div>
         </div>
 </div>
-
 )
 }
 }
 
 
-// export default Scorecard;
-export default playerList;
-
+export default Scorecard;
 
 
 
