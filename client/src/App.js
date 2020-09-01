@@ -17,8 +17,6 @@ const App = () =>{
 
   const getUser = () => {
     axios.get("/api/user_data").then(res=> {
-      console.log(res.data);
-      console.log(loggedIn);
       if (res.data.user) {
         console.log("logged in");
         setLoggedIn(true);
