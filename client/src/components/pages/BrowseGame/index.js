@@ -8,7 +8,7 @@ function BrowseGame({loggedIn, currentUser}) {
     return (<div>
                 <button><Link to="/create-game">Create Game</Link></button>
                 <p> Join a hosted game: </p>
-                <GameContainer />
+                <GameContainer currentUser={currentUser} />
              </div> );
 }
 
