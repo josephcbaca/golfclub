@@ -113,6 +113,19 @@ module.exports = function (app) {
       });
   });
 
+  // Posts a new hosted game to database
+  app.post("/api/host-new-game", (req, res) => {
+    console.log(req.body);
+    db.Game.create({
+      gameTime: req.body.gameTime,
+      golfCourse: req.body.golfCourse
+    })
+      .then(() => res.end())
+      .catch(err => {
+        res.status(401).json(err);
+      });
+  });
+
   // Routes for page redirection
   // Route for logging user out
   app.get("/logout", (req, res) => {

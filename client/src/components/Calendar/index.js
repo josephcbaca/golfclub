@@ -14,7 +14,7 @@ const Header = styled.div`
   padding: 10px 10px 5px 10px;
   display: flex;
   justify-content: space-between;
-  background-color: #f5f6fa;
+  background-color: white;
 `;
 
 const Button = styled.div`
