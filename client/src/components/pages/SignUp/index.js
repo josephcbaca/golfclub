@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import Navbar from "../../navbar.js"
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from "axios";
 
 function SignUp() {
   const [userName, setUserName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
 
   // Does a post to the signup route. If successful, we are redirected to the browse-game page
   // Otherwise we log any errors
@@ -23,7 +24,8 @@ function SignUp() {
         console.log(res);
         if (!res.data.errmsg){
           console.log("success");
-          window.location.replace("/login");
+          history.push("/login");
+          //window.location.replace("/login");
         } else {
           console.log("ERR");
         }})
