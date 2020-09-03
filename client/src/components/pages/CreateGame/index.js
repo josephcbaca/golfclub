@@ -43,7 +43,6 @@ function CreateGame({ loggedIn, currentUser }) {
                 if (!res.data.errmsg) {
                     console.log("success");
                     history.push("/browse-game");
-                    //window.location.replace("/browse-game");
                 } else {
                     console.log("ERR");
                 }
