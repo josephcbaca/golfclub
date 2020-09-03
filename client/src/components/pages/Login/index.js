@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import { Form, Button } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import axios from 'axios';
 
 function Login(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
 
   function loginUser (e) {
     e.preventDefault();
@@ -19,7 +20,8 @@ function Login(props) {
       console.log(res);
       if (res.status===200){
         props.updateUser(res.data)
-        window.location.replace("/browse-game");
+        history.push("/browse-game");
+        //window.location.replace("/browse-game");
       }
     }).catch(err=> console.log(err));
 
