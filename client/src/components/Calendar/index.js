@@ -48,7 +48,7 @@ const Day = styled.div`
     `}
 `;
 
-export default function Calendar() {
+export default function Calendar({ handleDateChange }) {
   const DAYS = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const DAYS_LEAP = [31, 29, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
   const DAYS_OF_THE_WEEK = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN'];
@@ -67,6 +67,12 @@ export default function Calendar() {
     setYear(date.getFullYear());
     setStartDay(getStartDayOfMonth(date));
   }, [date]);
+
+  //function wil select date and send date as prop  
+  const clickDate = d => {
+    setDate(new Date(year, month, d))
+    handleDateChange(new Date(year, month, d))
+  }
 
   function getStartDayOfMonth(date: Date) {
     return new Date(date.getFullYear(), date.getMonth(), 1).getDay();
@@ -102,7 +108,7 @@ export default function Calendar() {
                 key={index}
                 isToday={d === today.getDate()}
                 isSelected={d === day}
-                onClick={() => setDate(new Date(year, month, d))}
+                onClick={() => clickDate(d)}
               >
                 {d > 0 ? d : ''}
               </Day>
