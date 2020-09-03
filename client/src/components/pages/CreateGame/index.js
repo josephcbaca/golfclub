@@ -41,7 +41,7 @@ function CreateGame({ loggedIn, currentUser }) {
             .then(res => {
                 console.log(res);
                 if (!res.data.errmsg) {
-                    console.log("success");
+                    console.log("success!");
                     history.push("/browse-game");
                 } else {
                     console.log("ERR");
