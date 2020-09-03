@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import axios from 'axios';
+import './style.css'
 
 function GameCard(props) {
 
@@ -44,10 +45,10 @@ function GameCard(props) {
             </ul>
             <p>{`At: ${props.golfCourse}`}</p>
             {isHost ? 
-                <button> You are the host of this game!</button> :
+                <button type="button" className="host-button btn btn-outline-success col-3"> You are the host of this game!</button> :
                 hasJoined ? 
-                    <button> You have joined this game! </button>: 
-                    <button onClick={joinGame}> Join this game!</button>}
+                    <button type="button" className="btn btn-success col-3"> You have joined this game! </button>: 
+                    <button type="button" className="join-game-button btn btn-outline-success col-3" onClick={joinGame}> Join this game!</button>}
         </div>) 
     ;
 }
