@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import courses from "../../db";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import Navbar from "../../navbar";
 import Calendar from "../../Calendar";
 import axios from "axios";
@@ -10,6 +10,7 @@ function CreateGame({ loggedIn, currentUser }) {
     const [isDate, setIsDate] = useState("");
     const [isTime, setIsTime] = useState("");
     const [isCourse, setIsCourse] = useState("");
+    const history = useHistory();
 
     console.log(currentUser)
     const handleDateChange = e => {
@@ -40,8 +41,8 @@ function CreateGame({ loggedIn, currentUser }) {
             .then(res => {
                 console.log(res);
                 if (!res.data.errmsg) {
-                    console.log("success");
-                    window.location.replace("/browse-game");
+                    console.log("success!");
+                    history.push("/browse-game");
                 } else {
                     console.log("ERR");
                 }
