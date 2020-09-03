@@ -118,7 +118,8 @@ module.exports = function (app) {
     console.log(req.body);
     db.Game.create({
       gameTime: req.body.gameTime,
-      golfCourse: req.body.golfCourse
+      golfCourse: req.body.golfCourse,
+      host_id: req.body.host_id,
     })
       .then(() => res.end())
       .catch(err => {
