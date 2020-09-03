@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import Navbar from "../../navbar";
 import Calendar from "../../Calendar";
 import axios from "axios";
-import { propTypes } from "react-bootstrap/esm/Image";
 import moment from "moment"
 
 function CreateGame({ loggedIn, currentUser }) {
@@ -57,7 +56,7 @@ function CreateGame({ loggedIn, currentUser }) {
     </div>);
     return (
         <div>
-            <Navbar />
+            <Navbar loggedIn={loggedIn}/>
             <div className="container">
                 <br></br>
                 <div className="row">
