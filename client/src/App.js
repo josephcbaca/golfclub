@@ -3,7 +3,7 @@ import "./App.css";
 import Home from "./components/pages/Home"
 import { Route } from 'react-router-dom';
 import Login from "./components/pages/Login";
-import Scorecard from "./components/pages/Scorecard";
+import Scorecard from "./components/pages/Scorecard/index";
 import BrowseGame from "./components/pages/BrowseGame"
 import SignUp from "./components/pages/SignUp"
 import CreateGame from "./components/pages/CreateGame"

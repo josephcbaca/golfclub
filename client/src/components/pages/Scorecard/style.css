@@ -7,57 +7,39 @@ body {
     font-family: Arial;
     text-align: center;
   }
-
-.textInput
-{
-color: black;
-}
-
-.scorecardContainer
-{
-    display: grid;
-    justify-content: center;
-}
-
-.parBox
-{
- 
-}
-
-.frontNineHoles, .frontNinePar 
-.player1FrontNineScore
-.player2FrontNineScore
-.player3FrontNineScore
-.player4FrontNineScore
-{
+.inputRowsAndColumns {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
     margin-bottom: 1em;
-
 }
 
-.hole 
-{
-		background-color: #f63;
-        color: #fff;
-}  
-        
-.par 
-{
-		background-color: #ccc;
-		color: #777;
-		span {padding: .25em 0;}
-}
+  .columnOne{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+  }
 
-.score 
-{
-		color: #f63;
-		span {padding: .75em 0;}
-}
+  .scorecardGrid{
+      display: flex;
+      padding-top: 1em;
+      padding: 1em;
+      margin-bottom: 1em;
+  }
 
-.span 
-{
-		border: rgba(0,0,0,.25) solid 1px;
-		border-width: 0 0 0 1px;
-		display: inline-block;
-		text-align: center;
-		width: 3em;
-}
+ 
+  .grid-container {
+    grid-column-gap: 50px;
+      display: inline-table;
+      padding: .25em 0;
+  }
+
+/* HOLES SHOULD LINE UP WITH TEXT INPUTS  */
+
+  .grid-item .holes {
+      display: -moz-grid-group;
+      margin-block: 5px;
+  }
