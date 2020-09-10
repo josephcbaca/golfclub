@@ -1,17 +1,19 @@
 import React from "react";
 import axios from "axios";
+import Mojs from "./mojs";
 
-function Navbar({loggedIn}) {
+function Navbar({ loggedIn }) {
 
-  function logout(){
+  function logout() {
     axios.get("/logout").then(window.location.replace("/"));
   }
 
   return (
-    <div className=" container d-flex">
+    <div className="container d-flex">
 
       <h3 className="mr-auto nav-name">Golfclub</h3>
-      {loggedIn ? <button type="button" className="ml-auto btn btn-outline-success" onClick={logout}> Logout </button> : null}
+      <Mojs />
+      {loggedIn ? <button type="button" className="ml-auto btn btn-outline-success site-button" onClick={logout}> Logout </button> : null}
 
     </div>
   );

@@ -23,7 +23,6 @@ function Login(props) {
         history.push("/browse-game");
       }
     }).catch(err => console.log(err));
-
   }
 
   return (
@@ -32,9 +31,9 @@ function Login(props) {
       <div className="loginCard">
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div>
               <input
-                className="form-control"
+                className="form-control mb-2"
                 type="text"
                 placeholder="Email"
                 name="email"
@@ -43,20 +42,24 @@ function Login(props) {
             </div>
           </div>
           <div className="row">
-            <div className="col-4">
+            <div>
               <input
-                className="form-control"
-                type="text"
+                className="form-control mb-2"
+                type="password"
                 placeholder="Password"
                 name="password"
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
           </div>
-          <button onClick={loginUser} className="btn btn-outline-success site-button" type="submit">
-            Submit
+          <div className="row">
+            <button onClick={loginUser} className="btn btn-outline-success site-button mb-2" type="submit">
+              Submit
           </button>
-          <h3>Not a member?</h3> <Link className="link-text" to="/sign-up">Sign Up</Link>
+          </div>
+          <div className="row">
+            <p className="black-headings mr-1">Not a member?</p> <Link className="link-text" to="/sign-up">Sign Up</Link>
+          </div>
         </div>
       </div>
     </div>

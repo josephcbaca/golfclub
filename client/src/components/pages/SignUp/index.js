@@ -13,22 +13,23 @@ function SignUp() {
   // Otherwise we log any errors
   function signUpUser(e) {
     e.preventDefault();
-    const bodyObj = {  
+    const bodyObj = {
       userName: userName,
       email: email,
       password: password
     }
     console.log(bodyObj);
     axios.post("/api/signup", bodyObj)
-      .then(res=> {
+      .then(res => {
         console.log(res);
-        if (!res.data.errmsg){
+        if (!res.data.errmsg) {
           console.log("success");
           history.push("/login");
         } else {
           console.log("ERR");
-        }})
-      .catch(err=> {
+        }
+      })
+      .catch(err => {
         console.log("Signup Error: ");
         console.log(err);
       })
@@ -38,12 +39,11 @@ function SignUp() {
     <div>
       <Navbar />
       <div className="loginCard">
-
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div>
               <input
-                className="form-control"
+                className="form-control mb-2"
                 type="text"
                 placeholder="Username"
                 name="userName"
@@ -52,9 +52,9 @@ function SignUp() {
             </div>
           </div>
           <div className="row">
-            <div className="col-4">
+            <div>
               <input
-                className="form-control"
+                className="form-control mb-2"
                 type="text"
                 placeholder="Email"
                 name="email"
@@ -63,22 +63,26 @@ function SignUp() {
             </div>
           </div>
           <div className="row">
-            <div className="col-4">
+            <div>
               <input
-                className="form-control"
+                className="form-control mb-2"
                 type="password"
                 placeholder="Password"
                 name="password"
-                onChange={e => {setPassword(e.target.value)}}
+                onChange={e => { setPassword(e.target.value) }}
               />
             </div>
           </div>
-          <button onClick={signUpUser} className="btn btn-outline-success site-button" type="submit">
-            Submit
+          <div className="row">
+            <button onClick={signUpUser} className="btn btn-outline-success site-button mb-2" type="submit">
+              Submit
           </button>
+          </div>
+          <div className="row">
+            <p className="black-headings mr-1">Already a member?</p> <Link className="link-text" to="/login">Login</Link>
+          </div>
         </div>
       </div>
-      <h3>Already a member?</h3> <Link className="link-text" to="/login">Login</Link>
     </div>
   )
 };

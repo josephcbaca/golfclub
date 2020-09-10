@@ -53,16 +53,16 @@ function CreateGame({ loggedIn, currentUser }) {
             })
     }
 
-    if (!loggedIn) return (<div> Please log in before creating a new game! <Link to="/login">Login</Link>
-    </div>);
+    if (!loggedIn) return (<p className="black-headings"> Please log in before creating a new game! <Link className="link-text" to="/login">Login</Link>
+    </p>);
     return (
         <div>
-            <Navbar loggedIn={loggedIn}/>
+            <Navbar loggedIn={loggedIn} />
             <div className="container">
                 <br></br>
                 <div className="row">
                     <div className="col-4"></div>
-                    <Calendar handleDateChange={handleDateChange}/>
+                    <Calendar handleDateChange={handleDateChange} />
                     <div className="col-4"></div>
                 </div>
                 <br></br>
@@ -119,7 +119,10 @@ function CreateGame({ loggedIn, currentUser }) {
                     </div>)}
                 </div>
             </div>
-            <button onClick={hostNewGame} type="button" className="btn btn-outline-success col-12 ">Create Game</button>
+            <div className="row">
+                <button onClick={hostNewGame} type="button" className="btn btn-outline-success site-button col-6">Create Game</button>
+                <Link className="col-6" to="/browse-game"><button type="button" className="btn btn-outline-success site-button col-12">Back to Browse</button></Link>
+            </div>
         </div>);
 }
 

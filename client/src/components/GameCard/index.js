@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import axios from 'axios';
 import './style.css'
 
@@ -47,7 +48,7 @@ function GameCard(props) {
             <p className="black-headings text-justify">{`At: ${props.golfCourse}`}</p>
             <p className="black-headings text-justify">{props.gameTime}</p>
             {isHost ?
-                <button type="button" className="btn btn-success site-button col-12"> You are the host of this game!</button> :
+                <Link className="col-12" to="/scorecard"><button type="button" className="btn btn-outline-success site-button col-12">Start Game!</button></Link> :
                 hasJoined ?
                     <button type="button" className="btn btn-success site-button col-12"> You have joined this game! </button> :
                     <button type="button" className="btn btn-outline-success site-button col-12" onClick={joinGame}> Join this game!</button>}
