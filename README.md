@@ -26,12 +26,10 @@ When users access The Golf Club, they will be required to create a user profile 
 ## Tests
 
 ## Questions
-Q: Where can I schedule a tee off?
-
+Q: Where can I schedule a tee off?\
 A: For now, the locations are limited to five golf courses in the Seattle area: West Seattle Golf Course, Jefferson Park Golf Course, Interbay Golf Center, Willows Run Golf Complex, and Glen Acres Golf & Country Club.
 
-Q: How do I join a game?
-
+Q: How do I join a game?\
 A: Users can review available games hosted by other players. 
 
 ## License
