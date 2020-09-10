@@ -1,3 +1,5 @@
+import Navbar from "../../navbar"
+
 import React from 'react';
 import './style.css'
 
@@ -40,39 +42,40 @@ class PlayersList extends React.Component {
     render() {
         return (
             <div>
+                <Navbar />
                 {this.state.showScoreCard ?
                     <Scorecard players={this.state} handleSubmit={this.handleSubmit} /> : <div>
-                        <h1> Please Enter Each Players Name </h1>
+                        <h1 className="black-headings"> Please Enter Each Players Name </h1>
                         <form onSubmit={this.handleSubmit}>
-                            <label>
+                            <label className="black-headings">
                                 Player 1:
                         <input className="textInput1" type="text" name="player1" value1={this.state.text}
                                     onSubmit={this.handleSubmit}
                                     onChange={this.handleChange} />
                             </label>
                             <br></br>
-                            <label>
+                            <label className="black-headings">
                                 Player 2:
                         <input className="textInput2" type="text" name="player2" value2={this.state.text}
                                     onSubmit={this.handleSubmit}
                                     onChange={this.handleChange} />
                             </label>
                             <br></br>
-                            <label>
+                            <label className="black-headings">
                                 Player 3:
                         <input className="textInput3" type="text" name="player3" value3={this.state.text}
                                     onSubmit={this.handleSubmit}
                                     onChange={this.handleChange} />
                             </label>
                             <br></br>
-                            <label>
+                            <label className="black-headings">
                                 Player 4:
                         <input className="textInput4" type="text" name="player4" value4={this.state.text}
                                     onSubmit={this.handleSubmit}
                                     onChange={this.handleChange} />
                             </label>
                             <br></br>
-                            <input type="submit" value="OK" />
+                            <button className="btn btn-outline-success site-button" type="submit">Submit</button>
                         </form></div>
                 }
             </div>
@@ -126,7 +129,7 @@ class Scorecard extends React.Component {
         return (
             <div className="scorecard">
                 <div className="header">
-                    <h1 >Scorecard </h1>
+                    <h1 className="black-headings">Scorecard </h1>
                 </div>
                 <div className="scorecardGrid">
 
@@ -180,7 +183,7 @@ class Scorecard extends React.Component {
                         </tbody>
                     </table>
                 </div>
-                    <button type='button' className='btn btn-outline-success col-12' onClick={this.props.handleSubmit}>Back</button>
+                    <button type='button' className="btn btn-outline-success site-button col-6" onClick={this.props.handleSubmit}>Back</button>
             </div>
         )
     }

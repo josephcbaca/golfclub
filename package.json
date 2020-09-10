@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/josephcbaca/project-three#readme",
   "dependencies": {
+    "@mojs/core": "^0.288.2",
     "axios": "^0.19.2",
     "bcryptjs": "^2.4.3",
     "bootstrap": "^4.5.2",
