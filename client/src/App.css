@@ -63,3 +63,7 @@ body {
     transform: rotate(360deg);
   }
 }
+
+#mojs{
+  position: relative
+}
