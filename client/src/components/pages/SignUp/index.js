@@ -25,7 +25,6 @@ function SignUp() {
         if (!res.data.errmsg){
           console.log("success");
           history.push("/login");
-          //window.location.replace("/login");
         } else {
           console.log("ERR");
         }})
@@ -46,7 +45,7 @@ function SignUp() {
               <input
                 className="form-control"
                 type="text"
-                placeholder="userName"
+                placeholder="Username"
                 name="userName"
                 onChange={e => setUserName(e.target.value)}
               />
@@ -57,7 +56,7 @@ function SignUp() {
               <input
                 className="form-control"
                 type="text"
-                placeholder="email"
+                placeholder="Email"
                 name="email"
                 onChange={e => setEmail(e.target.value)}
               />
@@ -74,12 +73,12 @@ function SignUp() {
               />
             </div>
           </div>
-          <button onClick={signUpUser} className="btn" type="submit">
+          <button onClick={signUpUser} className="btn btn-outline-success site-button" type="submit">
             Submit
           </button>
         </div>
       </div>
-      <h3>Already a member?</h3> <Link to="/login">Login</Link>
+      <h3>Already a member?</h3> <Link className="link-text" to="/login">Login</Link>
     </div>
   )
 };

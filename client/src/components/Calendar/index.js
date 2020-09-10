@@ -4,8 +4,8 @@ import styled, { css } from 'styled-components';
 
 const Frame = styled.div`
   width: 400px;
-  border: 1px solid lightgrey;
-  box-shadow: 2px 2px 2px #eee;
+  border: 1px solid #5cb85c;
+  box-shadow: 2px 2px 2px ;
 `;
 
 const Header = styled.div`
@@ -14,7 +14,7 @@ const Header = styled.div`
   padding: 10px 10px 5px 10px;
   display: flex;
   justify-content: space-between;
-  background-color: white;
+  background-color: #5cb85c;
 `;
 
 const Button = styled.div`
@@ -25,6 +25,7 @@ const Body = styled.div`
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  background-color: #5cb85c;
 `;
 
 const Day = styled.div`
@@ -38,13 +39,14 @@ const Day = styled.div`
   ${props =>
     props.isToday &&
     css`
-      border: 1px solid #eee;
+      border: 1px solid #5cb85c;
     `}
 
   ${props =>
     props.isSelected &&
     css`
-      background-color: #eee;
+      background-color: green;
+      color: #5cb85c;
     `}
 `;
 

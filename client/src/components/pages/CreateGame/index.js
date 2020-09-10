@@ -68,8 +68,8 @@ function CreateGame({ loggedIn, currentUser }) {
                 <br></br>
                 <div className="row">
                     <div className="col-4"></div>
-                    <h4 className="col-3">Choose Tee Time</h4>
-                    <select onChange={handleTimeChange} id="dropdown">
+                    <h4 className="col-3 black-headings">Choose Tee Time</h4>
+                    <select className="time-dropbox" onChange={handleTimeChange} id="dropdown">
                         <option value=""></option>
                         <option value="6:00:00">6:00am</option>
                         <option value="6:15:00">6:15am</option>
@@ -111,11 +111,11 @@ function CreateGame({ loggedIn, currentUser }) {
                 <br></br>
                 <div>
                     {courses.map(course => <div className="row" key={course.id}>
-                        <input onChange={handleCourseChange} name={course.name} checked={isCourse === course.name} type="checkbox" class="form-check-input" id="exampleCheck1"></input>
-                        <h3 className="col-3">{course.name}</h3>
-                        <h6 className="col-5">{course.address}</h6>
-                        <h6 className="col-2">{course.holes}</h6>
-                        <a className="col-2" href={course.link}>Link</a>
+                        <input onChange={handleCourseChange} name={course.name} checked={isCourse === course.name} type="checkbox" class="form-check-input time-dropbox" id="exampleCheck1"></input>
+                        <h3 className="col-3 black-headings">{course.name}</h3>
+                        <h6 className="col-5 black-headings">{course.address}</h6>
+                        <h6 className="col-2 black-headings">{course.holes}</h6>
+                        <a className="col-2 link-text" href={course.link}>Link</a>
                     </div>)}
                 </div>
             </div>
