@@ -22,8 +22,7 @@ When users access The Golf Club, they will be required to create a user profile 
 ## Tests
 
 ## Questions
-Q: How does it work?
-A: So far?
+
 
 ## License
 MIT License
