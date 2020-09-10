@@ -157,21 +157,21 @@ class Scorecard extends React.Component {
 
                             </tr> : null}
                             {this.state.player2 ? <tr >
-                                <td>{this.state.player1}</td>
+                                <td>{this.state.player2}</td>
                                 {this.state.holes.map((hole) => {
                                     return <td><input type='text' size='2' maxLength='2' placeholder='0' /></td>
                                 })}
 
                             </tr> : null}
                             {this.state.player3 ? <tr >
-                                <td>{this.state.player1}</td>
+                                <td>{this.state.player3}</td>
                                 {this.state.holes.map((hole) => {
                                     return <td><input type='text' size='2' maxLength='2' placeholder='0' /></td>
                                 })}
 
                             </tr> : null}
                             {this.state.player4 ? <tr >
-                                <td>{this.state.player1}</td>
+                                <td>{this.state.player4}</td>
                                 {this.state.holes.map((hole) => {
                                     return <td><input type='text' size='2' maxLength='2' placeholder='0' /></td>
                                 })}
