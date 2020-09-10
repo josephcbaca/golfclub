@@ -13,22 +13,25 @@ class PlayersList extends React.Component {
             player1: '',
             player2: '',
             player3: '',
-            player4: ''
+            player4: '',
+            showScoreCard: false
         };
     }
 
 // this handle change sets players array to local storage.
     handleChange(event) {
         let obj = this.state; obj[event.target.name] = event.target.value;
-        let players = [obj];
         this.setState(obj);
-        console.log(players)
-        localStorage.setItem('players', JSON.stringify(players));
+        localStorage.setItem('players', JSON.stringify(obj));
     }
 
 // onClick for "OK button" -- Want to set Scorecard to visible
     handleSubmit = event => {
         event.preventDefault();
+        let obj = this.state; 
+        obj.showScoreCard = !this.state.showScoreCard;
+        console.log(obj);
+        this.setState(obj);
         console.log("OK was clicked but Scorecard did not show");
 //  WANT TO SHOW SCORECARD 
     }
@@ -37,42 +40,44 @@ class PlayersList extends React.Component {
     render() {
         return (
             <div>
-                <h1> Please Enter Each Players Name </h1>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                        Player 1:
-                    <input className="textInput1" type="text" name="player1" value1={this.state.text}
-                            onSubmit={this.handleSubmit}
-                            onChange={this.handleChange} />
-                    </label>
-                    <br></br>
-                    <label>
-                        Player 2:
-                    <input className="textInput2" type="text" name="player2" value2={this.state.text}
-                            onSubmit={this.handleSubmit}
-                            onChange={this.handleChange} />
-                    </label>
-                    <br></br>
-                    <label>
-                        Player 3:
-                    <input className="textInput3" type="text" name="player3" value3={this.state.text}
-                            onSubmit={this.handleSubmit}
-                            onChange={this.handleChange} />
-                    </label>
-                    <br></br>
-                    <label>
-                        Player 4:
-                    <input className="textInput4" type="text" name="player4" value4={this.state.text}
-                            onSubmit={this.handleSubmit}
-                            onChange={this.handleChange} />
-                    </label>
-                    <br></br>
-                    <input type="submit" value="OK" />
-                </form>
+                {this.state.showScoreCard ? 
+                    <Scorecard players={this.state} /> : <div>
+                    <h1> Please Enter Each Players Name </h1>
+                    <form onSubmit={this.handleSubmit}>
+                        <label>
+                            Player 1:
+                        <input className="textInput1" type="text" name="player1" value1={this.state.text}
+                                onSubmit={this.handleSubmit}
+                                onChange={this.handleChange} />
+                        </label>
+                        <br></br>
+                        <label>
+                            Player 2:
+                        <input className="textInput2" type="text" name="player2" value2={this.state.text}
+                                onSubmit={this.handleSubmit}
+                                onChange={this.handleChange} />
+                        </label>
+                        <br></br>
+                        <label>
+                            Player 3:
+                        <input className="textInput3" type="text" name="player3" value3={this.state.text}
+                                onSubmit={this.handleSubmit}
+                                onChange={this.handleChange} />
+                        </label>
+                        <br></br>
+                        <label>
+                            Player 4:
+                        <input className="textInput4" type="text" name="player4" value4={this.state.text}
+                                onSubmit={this.handleSubmit}
+                                onChange={this.handleChange} />
+                        </label>
+                        <br></br>
+                        <input type="submit" value="OK" />
+                    </form></div>
+                }
 
 {/* DISPLAYS SCORECARD BUT WILL BE REMOVED WHEN PAGE LOADS WITH ONCLICK */}
-                <Scorecard players={this.state} />
-
+                
             </div>
         )
     }
@@ -97,6 +102,13 @@ class Scorecard extends React.Component {
 
     componentDidMount() {
         let players = JSON.parse(localStorage.getItem('players'));
+        let obj = {};
+        obj.holes = this.state.holes;
+        for (let i = 1; i<= 4; i++){
+            let propName = "player"+i;
+            obj[propName] = players[propName];
+        }
+        this.setState(obj);
         console.log(players)
     }
 
@@ -123,10 +135,10 @@ class Scorecard extends React.Component {
                         <div className="rowOne">Hole</div>
                         <p className="rowTwo">Par</p>
 {/*  NEED TO LIST PLAYERS FROM LOCAL STORAGE  */}
-                        <input className="playerOne" placeholder="Player 1"></input>
-                        <input className="playerTwo" placeholder="Player 2"></input>
-                        <input className="playerThree" placeholder="Player 3"></input>
-                        <input className="playerFour" placeholder="Player 4"></input>
+                        <p className="playerOne" placeholder="Player 1">{this.state.player1}</p>
+                        <p className="playerTwo" placeholder="Player 2">{this.state.player2}</p>
+                        <p className="playerThree" placeholder="Player 3">{this.state.player3}</p>
+                        <p className="playerFour" placeholder="Player 4">{this.state.player4}</p>
                     </div>
 {/* holes uses dynamic mapping cannot get grid to line up yet  */}
                     <div className="inputRowsAndColumns">
