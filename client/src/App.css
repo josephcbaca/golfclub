@@ -1,4 +1,38 @@
+body {
+  background-color: rgb(241, 255, 241);
+  color: white;
+  padding: 40px;
+  font-family: Arial;
+  text-align: center;
+}
 
+.nav-name, .black-headings {
+  color: black;
+}
+
+.site-button {
+  text-decoration: none;
+  color: black;
+}
+
+.site-button:hover {
+  text-decoration: none;
+  color: white;
+}
+
+.time-dropbox {
+  background-color: #5cb85c;
+  color: white;
+  outline: #5cb85c;
+}
+
+.link-text {
+  color: red;
+}
+
+.link-text:hover {
+  color: green;
+}
 
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {

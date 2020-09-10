@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Form, Button } from 'react-bootstrap';
 import { Link, useHistory } from 'react-router-dom';
+import Navbar from "../../navbar.js"
 import axios from 'axios';
 
 function Login(props) {
@@ -8,52 +8,57 @@ function Login(props) {
   const [password, setPassword] = useState();
   const history = useHistory();
 
-  function loginUser (e) {
+  function loginUser(e) {
     e.preventDefault();
-    const bodyObj = {  
+    const bodyObj = {
       email: email,
       password: password
     }
     console.log(bodyObj);
-    axios.post("/api/login", bodyObj).then(res=> {
+    axios.post("/api/login", bodyObj).then(res => {
       console.log('login response:');
       console.log(res);
-      if (res.status===200){
+      if (res.status === 200) {
         props.updateUser(res.data)
         history.push("/browse-game");
-        //window.location.replace("/browse-game");
       }
-    }).catch(err=> console.log(err));
+    }).catch(err => console.log(err));
 
   }
 
   return (
     <div>
-      {<Form>
-        <Form.Group controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control onChange={e => setEmail(e.target.value)} 
-          className="col-4" 
-          type="email" 
-          placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            Please enter your login email.
-    </Form.Text>
-        </Form.Group>
-        <Form.Group controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control onChange={e => setPassword(e.target.value)} 
-          className="col-4" 
-          type="password" 
-          placeholder="Password" />
-        </Form.Group>
-        <Button onClick={loginUser}
-        variant="primary" 
-        type="submit">
-          Submit
-        </Button>
-      </Form>}
-      <h3>Not a member?</h3> <Link to="/sign-up">Sign Up</Link>
+      <Navbar />
+      <div className="loginCard">
+        <div className="container">
+          <div className="row">
+            <div className="col-4">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Email"
+                name="email"
+                onChange={e => setEmail(e.target.value)}
+              />
+            </div>
+          </div>
+          <div className="row">
+            <div className="col-4">
+              <input
+                className="form-control"
+                type="text"
+                placeholder="Password"
+                name="password"
+                onChange={e => setPassword(e.target.value)}
+              />
+            </div>
+          </div>
+          <button onClick={loginUser} className="btn btn-outline-success site-button" type="submit">
+            Submit
+          </button>
+          <h3>Not a member?</h3> <Link className="link-text" to="/sign-up">Sign Up</Link>
+        </div>
+      </div>
     </div>
   );
 };

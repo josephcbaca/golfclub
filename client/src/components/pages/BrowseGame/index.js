@@ -11,8 +11,12 @@ function BrowseGame({ loggedIn, currentUser }) {
     return (<div>
         <Navbar loggedIn={loggedIn} />
         <div className="container">
-            <Link className="create-game-button" to="/create-game"><button type="button" className="create-game-button btn btn-outline-success col-2">Host Game</button></Link>
-            <p className="col-2"> Join a hosted game: </p>
+            <div className="row">
+                <Link to="/create-game"><button type="button" className="btn btn-outline-success site-button">Host Game</button></Link>
+            </div>
+            <div className="row">
+                <h4 className="black-headings">Join a hosted game:</h4>
+            </div>
             <GameContainer currentUser={currentUser} />
         </div>
     </div>);
