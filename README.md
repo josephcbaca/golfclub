@@ -1,5 +1,6 @@
 # The Golf Club
-This project was created by josephcbaca
+This project was created by josephcbaca, Robischl86, nobobobo, and DiegoResendez.
+
 ## Table of Contents
 1. [Description](#description) 
  2. [Screenshot](#screenshot) 
@@ -9,20 +10,27 @@ This project was created by josephcbaca
  6. [Contributors](#contributors) 
  7. [Tests](#tests) 
  8. [Questions](#questions) 
+
 ## Description
 The Golf Club is a social networking application that allows users to set up a round of golf with other players at one of five courses in the Seattle Metropolitan Area. Users will create their own unique profiles with usernames and passwords connected to a MySQL database.
+
 ## Screenshot
 ![Screenshot](screenshot.png?raw=true) 
 ## Installation
 
 ## Usage
-When users access The Golf Club, they will be required to create a user profile with a username and password. Once the profile is created, they will have the ability to schedule tee offs at one of five golf courses in the Seattle area.
+When users access The Golf Club, they will be required to create a user profile with a username and password. Once the profile is created, they will have the ability to schedule tee offs at one of five golf courses in the Seattle area. Users can either host or join a group golf session. Hosting players will select the date, time, and location of the golf game, and joining players can review the available games and opt into the roster. Players will have access to a scorecard that can be used to track and log their golf scores.
+
 ## Contributors
 
 ## Tests
 
 ## Questions
+Q: Where can I schedule a tee off?
+A: For now, the locations are limited to five golf courses in the Seattle area: West Seattle Golf Course, Jefferson Park Golf Course, Interbay Golf Center, Willows Run Golf Complex, and Glen Acres Golf & Country Club.
 
+Q: How do I join a game?
+A: Users can review available games hosted by other players. 
 
 ## License
 MIT License
