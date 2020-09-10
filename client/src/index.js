@@ -6,6 +6,7 @@ import * as serviceWorker from './serviceWorker';
 import { BrowserRouter as Router } from 'react-router-dom';
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 fetch('/api/test')
   .then(function (response) {
     return response.json();
@@ -16,6 +17,8 @@ fetch('/api/test')
 
 =======
 >>>>>>> 2a08da9c33ea2078b890af50ab70b79e203459fa
+=======
+>>>>>>> 9544e02d419ce1f1073e2e75cd319be4d4e8451c
 ReactDOM.render(
   <React.StrictMode>
     <Router>
