@@ -1,36 +1,43 @@
 import React, { useState } from "react";
-import Navbar from "../navbar.js"
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import Navbar from "../../navbar.js"
+import axios from 'axios';
 
-function SignUp() {
-  const [user, setUser] = useState();
+function Login(props) {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
 
-  // Does a post to the signup route. If successful, we are redirected to the browse-game page
-  // Otherwise we log any errors
-  function signUpUser(email, password) {
-    user.post("/api/signup", {
+  function loginUser(e) {
+    e.preventDefault();
+    const bodyObj = {
       email: email,
       password: password
-    })
-      .then(<Link to="/browse-game">Create Game</Link>)
-      .catch("err");
+    }
+    console.log(bodyObj);
+    axios.post("/api/login", bodyObj).then(res => {
+      console.log('login response:');
+      console.log(res);
+      if (res.status === 200) {
+        props.updateUser(res.data)
+        history.push("/browse-game");
+      }
+    }).catch(err => console.log(err));
+
   }
 
   return (
     <div>
       <Navbar />
       <div className="loginCard">
-
         <div className="container">
           <div className="row">
             <div className="col-4">
               <input
                 className="form-control"
                 type="text"
-                placeholder="Username"
-                name="username"
+                placeholder="Email"
+                name="email"
                 onChange={e => setEmail(e.target.value)}
               />
             </div>
@@ -39,21 +46,21 @@ function SignUp() {
             <div className="col-4">
               <input
                 className="form-control"
-                type="password"
+                type="text"
                 placeholder="Password"
                 name="password"
                 onChange={e => setPassword(e.target.value)}
               />
             </div>
           </div>
-          <button onClick={signUpUser} className="btn" type="submit">
+          <button onClick={loginUser} className="btn btn-outline-success site-button" type="submit">
             Submit
           </button>
+          <h3>Not a member?</h3> <Link className="link-text" to="/sign-up">Sign Up</Link>
         </div>
       </div>
-      <h3>Already a member?</h3> <a><Link to="/login">Login</Link></a>
     </div>
-  )
+  );
 };
 
-export default SignUp;
+export default Login;

@@ -32,32 +32,5 @@ module.exports = function (sequelize, DataTypes) {
         player.password = bcrypt.hashSync(player.password, bcrypt.genSaltSync(10), null);
     });
 
-    Player.associate = function (models) {
-        Player.hasMany(models.Game, {
-            foreignKey: {
-                name: 'host_id',
-                allowNull: false
-            }
-        });
-        Player.hasMany(models.Game, {
-            foreignKey: {
-                name: 'player_id_1',
-                allowNull: true
-            }
-        });
-        Player.hasMany(models.Game, {
-            foreignKey: {
-                name: 'player_id_2',
-                allowNull: true
-            }
-        });
-        Player.hasMany(models.Game, {
-            foreignKey: {
-                name: 'player_id_3',
-                allowNull: true
-            }
-        });
-    }
-
     return Player;
 };

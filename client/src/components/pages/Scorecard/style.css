@@ -1,0 +1,36 @@
+.inputRowsAndColumns {
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+  .columnOne{
+    float: left;
+    display: flex;
+    flex-direction: column;
+    -webkit-box-align: center;
+    align-items: center;
+  }
+
+  .scorecardGrid{
+      display: flex;
+      padding-top: 1em;
+      padding: 1em;
+      margin-bottom: 1em;
+  }
+
+ 
+  .grid-container {
+    grid-column-gap: 50px;
+      display: inline-table;
+      padding: .25em 0;
+  }
+
+/* HOLES SHOULD LINE UP WITH TEXT INPUTS  */
+
+  .grid-item .holes {
+      display: -moz-grid-group;
+      margin-block: 5px;
+  }
