@@ -1,5 +1,5 @@
 # The Golf Club
-This project was created by josephcbaca
+This project was created by josephcbaca, Robischl86, nobobobo, DiegoResendez.
 ## Table of Contents
 1. [Description](#description) 
  2. [Screenshot](#screenshot) 
